@@ -1,10 +1,10 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.al4t_claco.R
-import com.example.al4t_claco.model.File
+import com.example.al4t_claco.Models.File
 import com.github.barteksc.pdfviewer.PDFView
 /*
 * This is the activity used to display a pdf

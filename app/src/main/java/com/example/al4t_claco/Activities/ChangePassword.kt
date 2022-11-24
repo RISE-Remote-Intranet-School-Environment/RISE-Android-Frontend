@@ -1,4 +1,4 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

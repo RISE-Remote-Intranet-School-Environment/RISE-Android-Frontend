@@ -1,4 +1,4 @@
-package com.example.al4t_claco.model
+package com.example.al4t_claco.Models
 
 class Teacher(name: String, email: String, password: String, workspace: List<Course>) :
     User(name, email, password, workspace) {

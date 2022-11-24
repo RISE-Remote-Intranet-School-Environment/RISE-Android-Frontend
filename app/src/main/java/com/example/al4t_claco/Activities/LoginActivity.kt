@@ -1,4 +1,4 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.widget.Button
 import android.content.Intent
 import android.widget.EditText
 import com.example.al4t_claco.R
-import com.example.al4t_claco.model.*
+import com.example.al4t_claco.Models.*
 
 /* This is the class that shows the page Login, where the user is can put his email and password
 *  in order to have access to the workspace

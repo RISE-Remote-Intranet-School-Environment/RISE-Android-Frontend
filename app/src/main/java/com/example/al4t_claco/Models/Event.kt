@@ -1,7 +1,5 @@
-package com.example.al4t_claco.model
+package com.example.al4t_claco.Models
 
-import java.sql.Date
-import java.sql.Time
 import java.time.LocalDateTime
 
 class Event (name: String, location: Classroom, val startDate: LocalDateTime, val endDate: LocalDateTime, description: String){

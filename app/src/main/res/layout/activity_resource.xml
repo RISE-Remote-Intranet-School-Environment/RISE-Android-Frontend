@@ -9,7 +9,7 @@
 
         <variable
                 name="activity"
-                type="com.example.al4t_claco.view.DataActivity"/>
+                type="com.example.al4t_claco.dataClasses.DataActivity"/>
     </data>
     <androidx.drawerlayout.widget.DrawerLayout android:layout_width="match_parent" android:layout_height="match_parent"
                                                android:id="@+id/drawerLayout"
@@ -18,7 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".controller.ResourceActivity">
+            tools:context=".Activities.ResourceActivity">
         <TextView
                 android:text="@{activity.name}"
                 android:layout_width="wrap_content"

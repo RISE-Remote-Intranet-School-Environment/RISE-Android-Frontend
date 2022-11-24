@@ -1,4 +1,4 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import android.content.Context
 import android.content.Intent
@@ -7,12 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.al4t_claco.R
-import com.example.al4t_claco.model.Activity
-import com.example.al4t_claco.model.Course
-import com.example.al4t_claco.view.DashboardData
+import com.example.al4t_claco.dataClasses.DashboardData
 
 /*
  * This class is used to render the custom gridlayout with the recycler view of the workspace.

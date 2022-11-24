@@ -1,9 +1,9 @@
-package com.example.al4t_claco.model
+package com.example.al4t_claco.Models
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import com.example.al4t_claco.controller.LoginActivity
+import com.example.al4t_claco.Activities.LoginActivity
 
 /*
  * This class is used to save the session and to kill it if we want to

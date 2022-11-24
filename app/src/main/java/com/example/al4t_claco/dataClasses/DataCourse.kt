@@ -1,6 +1,6 @@
-package com.example.al4t_claco.view
+package com.example.al4t_claco.dataClasses
 
-import com.example.al4t_claco.model.Course
+import com.example.al4t_claco.Models.Course
 
 data class DataCourse(private val course: Course) {
 

@@ -1,4 +1,4 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,11 +12,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.al4t_claco.R
-import com.example.al4t_claco.model.Activity
-import com.example.al4t_claco.model.Course
-import com.example.al4t_claco.model.File
-import com.example.al4t_claco.model.sessionManager
-import com.example.al4t_claco.view.DashboardData
+import com.example.al4t_claco.Models.Activity
+import com.example.al4t_claco.Models.Course
+import com.example.al4t_claco.Models.File
+import com.example.al4t_claco.Models.sessionManager
+import com.example.al4t_claco.dataClasses.DashboardData
 import com.google.android.material.navigation.NavigationView
 
 /* This is the class that shows the page workspace, where the user is going to be able to

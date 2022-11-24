@@ -14,7 +14,7 @@
             android:theme="@style/Theme.AL4T_Claco">
 
         <activity
-                android:name=".controller.LoginActivity"
+                android:name=".Activities.LoginActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -23,21 +23,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".controller.Dashboard"></activity>
+        <activity android:name=".Activities.Dashboard"></activity>
 
-        <activity android:name=".controller.CourseInformation"></activity>
+        <activity android:name=".Activities.CourseInformation"></activity>
 
-        <activity android:name=".controller.ResourceActivity"></activity>
+        <activity android:name=".Activities.ResourceActivity"></activity>
 
         <activity
-                android:name=".controller.PdfViewActivity"
-                android:parentActivityName=".controller.ResourceActivity">
+                android:name=".Activities.PdfViewActivity"
+                android:parentActivityName=".Activities.ResourceActivity">
         </activity>
 
-        <activity android:name=".controller.ChangePassword"></activity>
+        <activity android:name=".Activities.ChangePassword"></activity>
 
 
-        <activity android:name=".controller.CalendarActivity"></activity>
+        <activity android:name=".Activities.CalendarActivity"></activity>
 
     </application>
 </manifest>

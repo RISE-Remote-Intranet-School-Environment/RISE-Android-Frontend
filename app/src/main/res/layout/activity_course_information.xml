@@ -10,7 +10,7 @@
 
         <variable
                 name="course"
-                type="com.example.al4t_claco.view.DataCourse" />
+                type="com.example.al4t_claco.dataClasses.DataCourse" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout android:layout_width="match_parent" android:layout_height="match_parent"
@@ -20,7 +20,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".controller.CourseInformation">
+            tools:context=".Activities.CourseInformation">
 
 
 

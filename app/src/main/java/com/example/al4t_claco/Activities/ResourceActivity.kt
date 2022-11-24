@@ -1,4 +1,4 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -19,12 +19,12 @@ import androidx.core.graphics.drawable.toDrawable
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.gridlayout.widget.GridLayout
-import com.example.al4t_claco.model.Activity
-import com.example.al4t_claco.model.File
+import com.example.al4t_claco.Models.Activity
+import com.example.al4t_claco.Models.File
 import com.example.al4t_claco.R
 import com.example.al4t_claco.databinding.ActivityResourceBinding
-import com.example.al4t_claco.model.sessionManager
-import com.example.al4t_claco.view.DataActivity
+import com.example.al4t_claco.Models.sessionManager
+import com.example.al4t_claco.dataClasses.DataActivity
 import java.io.FileOutputStream
 import java.io.IOException
 

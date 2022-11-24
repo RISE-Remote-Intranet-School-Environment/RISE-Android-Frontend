@@ -1,9 +1,6 @@
-package com.example.al4t_claco.model
+package com.example.al4t_claco.Models
 
 import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 import java.util.*
 
 class Calendar(val events: List<Event>) {

@@ -1,4 +1,4 @@
-package com.example.al4t_claco.controller
+package com.example.al4t_claco.Activities
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -20,10 +20,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.gridlayout.widget.GridLayout
 import com.example.al4t_claco.R
 import com.example.al4t_claco.databinding.ActivityCourseInformationBinding
-import com.example.al4t_claco.model.Activity
-import com.example.al4t_claco.model.Course
-import com.example.al4t_claco.model.sessionManager
-import com.example.al4t_claco.view.DataCourse
+import com.example.al4t_claco.Models.Activity
+import com.example.al4t_claco.Models.Course
+import com.example.al4t_claco.Models.sessionManager
+import com.example.al4t_claco.dataClasses.DataCourse
 import com.google.android.material.navigation.NavigationView
 
 /* This is the class that shows the page describing the information of a course including all the activities
