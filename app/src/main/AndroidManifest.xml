@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.al4t_claco">
+    package="com.example.al4t_claco">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.AL4T_Claco">
-
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AL4T_Claco">
         <activity
-                android:name=".Activities.LoginActivity"
-                android:exported="true">
+            android:name=".Activities.Cars"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Activities.Dashboard"></activity>
-
-        <activity android:name=".Activities.CourseInformation"></activity>
-
-        <activity android:name=".Activities.ResourceActivity"></activity>
-
+        <activity android:name=".Activities.Dashboard" />
+        <activity android:name=".Activities.CourseInformation" />
+        <activity android:name=".Activities.ResourceActivity" />
         <activity
-                android:name=".Activities.PdfViewActivity"
-                android:parentActivityName=".Activities.ResourceActivity">
-        </activity>
-
-        <activity android:name=".Activities.ChangePassword"></activity>
-
-
-        <activity android:name=".Activities.CalendarActivity"></activity>
-
+            android:name=".Activities.PdfViewActivity"
+            android:parentActivityName=".Activities.ResourceActivity"></activity>
+        <activity android:name=".Activities.ChangePassword" />
+        <activity android:name=".Activities.CalendarActivity" />
     </application>
+
 </manifest>

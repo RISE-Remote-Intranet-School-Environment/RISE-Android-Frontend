@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.content.Intent
+import android.util.Log
 import android.widget.EditText
 import com.example.al4t_claco.R
 import com.example.al4t_claco.Models.*
@@ -51,10 +52,11 @@ class LoginActivity : AppCompatActivity() {
             if ((email.text.toString() == student.email) and (pass.text.toString() == student.password)) {
                 //user information saved in session
                 session.createLoginSession(student.name, student.email, cou, "Teacher")
-                val intent = Intent(this, Dashboard::class.java).apply {
+                val intent = Intent(this, Cars::class.java).apply {
                     putExtra("name", "Amine")
                     putExtra("matricule", "17")
                 }
+
                 startActivity(intent)
             }
         }

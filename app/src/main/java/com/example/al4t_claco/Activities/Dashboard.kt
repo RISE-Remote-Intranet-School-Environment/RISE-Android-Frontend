@@ -28,6 +28,11 @@ class Dashboard  : AppCompatActivity() {
     lateinit var session: sessionManager
     lateinit var utilisateur : HashMap<String,String>
 
+    private lateinit var drawerLayout :DrawerLayout
+    private lateinit var navView :NavigationView
+    private lateinit var user :TextView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard)
@@ -38,10 +43,10 @@ class Dashboard  : AppCompatActivity() {
 
         //SIDE MENU
 
-        val drawerLayout : DrawerLayout = findViewById<View>(R.id.drawerLayout) as DrawerLayout
-        val navView : NavigationView = findViewById<View>(R.id.navView) as NavigationView
+        drawerLayout = findViewById<View>(R.id.drawerLayout) as DrawerLayout
+        navView = findViewById<View>(R.id.navView) as NavigationView
         val headerView = navView.getHeaderView(0)
-        val user = headerView.findViewById<TextView>(R.id.user)
+        user = headerView.findViewById<TextView>(R.id.user)
 
         utilisateur = session.getUserDetails()
         var name :String = utilisateur.get(sessionManager.companion.KEY_NAME)!!
