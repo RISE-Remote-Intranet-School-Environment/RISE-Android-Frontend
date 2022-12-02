@@ -2,8 +2,10 @@ package com.example.al4t_claco.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -25,7 +27,9 @@ class Cars : AppCompatActivity() {
         val viewModel: CarViewModel by viewModels()
         btnIncrement = findViewById(R.id.btnIncrement)
         btnIncrement.setOnClickListener {
-            viewModel.add_km(1)
+            viewModel.add_km(1);
+            //Toast.makeText(this,viewModel.uiState.value.km.toString(),Toast.LENGTH_SHORT).show()
+
         }
 
 

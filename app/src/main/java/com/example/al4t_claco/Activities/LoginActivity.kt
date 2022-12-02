@@ -6,8 +6,13 @@ import android.widget.Button
 import android.content.Intent
 import android.util.Log
 import android.widget.EditText
+import androidx.activity.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.al4t_claco.R
 import com.example.al4t_claco.Models.*
+import kotlinx.coroutines.launch
 
 /* This is the class that shows the page Login, where the user is can put his email and password
 *  in order to have access to the workspace
@@ -30,6 +35,22 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //TODO : Get this from the API instead of creating them here
+
+        // trying to implement ViewModel
+        val activityModel :LoginViewModel by viewModels()
+        //lifecycleScope.launch {
+        //    repeatOnLifecycle(Lifecycle.State.STARTED) {
+        //        activityModel.loginUIState.collect { loginUIState  ->
+                    // Update UI elements
+        //            val secret = loginUIState.name.toString() + loginUIState.password.toString()
+
+
+
+          //      }
+          //  }
+        //}
+        activityModel.user_authentification()
+
 
         val teachers = listOf("Teacher1", "Teacher2")
         val activity = Activity("Architecture", "4MIN-AL4T", teachers, "lalalla")

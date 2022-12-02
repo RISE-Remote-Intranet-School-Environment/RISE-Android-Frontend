@@ -2,20 +2,19 @@ package com.example.al4t_claco.Activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.al4t_claco.Models.*
 import com.example.al4t_claco.R
-import com.example.al4t_claco.Models.Activity
-import com.example.al4t_claco.Models.Course
-import com.example.al4t_claco.Models.File
-import com.example.al4t_claco.Models.sessionManager
 import com.example.al4t_claco.dataClasses.DashboardData
 import com.google.android.material.navigation.NavigationView
 
@@ -73,31 +72,25 @@ class Dashboard  : AppCompatActivity() {
         }
 
         //CREATE ACTIVITIES AND COURSES
+        // integrating view model
+        val activityModel : DashboardViewModel by viewModels()
+
+        val activitiesList = activityModel.get_all_activities()
+        for (activity in activitiesList){
+            if (activity.name==""){
+                Log.i("Found ",activity.name + activity.code)
+            }
 
 
+        }
         //TODO : Get this from the API instead of creating them here
-        val activity = Activity("Activity 1","4inf", listOf("Lorge","Lurkin","Dekimpe"),"This is the description of activity 1")
-        val activity2 = Activity("Activity 2","4inf", listOf("Lorge","Lurkin","Dekimpe"),"This is the description of activity 2")
-        val activity3 = Activity("Activity 3","4inf", listOf("Lorge","Lurkin","Dekimpe"),"This is the description of activity 3")
-        val activity4 = Activity("Parallel programming, OpenGL","4inf", listOf("Lurkin"),"Notions present in this course : memory management in C++, 3D render with OpenGL ...")
-        val activity5 = Activity("Algorithmic","4inf", listOf("Hasselmann"),"This course is about algorithms, it will cover the basics on algorithmic complexity, data structures and their applications. The course will feature exercices along the way and a small presentation and the end of the session")
-        val activity6 = Activity("Image processing lab","4inf", listOf("Lurkin","Madmad"),"Notions present in this course : filtering, morphological operations, projective geometry ...")
 
-        activity.resources = listOf(File("file 1","pdf"), File("file 2","pdf"), File("file 3","pdf"), File("file 4","PDF"))
-        activity2.resources = listOf(File("file 1","pdf"), File("file 2","pdf"), File("file 3","pdf"), File("file 4","PDF"))
-        activity3.resources = listOf(File("file 5","pdf"), File("file 6","pdf"), File("file 3","pdf"), File("file 4","PDF"))
-        activity4.resources = listOf(File("file 5","pdf"), File("file 6","pdf"), File("file 3","pdf"), File("file 4","PDF"))
-        activity5.resources = listOf(File("file 5","pdf"), File("file 6","pdf"), File("file 3","pdf"), File("file 4","PDF"))
-        activity6.resources = listOf(File("file 5","pdf"), File("file 6","pdf"), File("file 3","pdf"), File("file 4","PDF"))
 
-        val activityList = listOf<Activity>(activity,activity2,activity3)
-        val activityList2 = listOf<Activity>(activity4,activity5,activity6)
-
-        val course = Course("GPU Computing","4inf",4,5,"Lur","This course deals with GPU Computing", activityList2)
-        val course1 = Course("Database","4DB",4,5,"Lor","This course deals with database", activityList)
-        val course2 = Course("APPS","4app",4,5,"LRK","This course deals with APPS", activityList)
-        val course3 = Course("Electronics","4el",4,5,"MCH","This course deals with electronics", activityList)
-        val course4 = Course("Electricity","4inf",4,5,"CMS","This course deals with electricity", activityList)
+        val course = Course("GPU Computing","4inf",4,5,"Lur","This course deals with GPU Computing", activitiesList.slice(0..2))
+        val course1 = Course("Database","4DB",4,5,"Lor","This course deals with database", activitiesList.slice(2..4))
+        val course2 = Course("APPS","4app",4,5,"LRK","This course deals with APPS", activitiesList.slice(1..3))
+        val course3 = Course("Electronics","4el",4,5,"MCH","This course deals with electronics", activitiesList.slice(3..5))
+        val course4 = Course("Electricity","4inf",4,5,"CMS","This course deals with electricity", activitiesList.slice(1..4))
 
         val course_logo = DashboardData(course,R.drawable.ic_launcher_foreground)
         val course_logo1 = DashboardData(course1,R.drawable.ic_launcher_foreground)
