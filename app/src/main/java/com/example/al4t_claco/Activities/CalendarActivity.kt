@@ -6,16 +6,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.gridlayout.widget.GridLayout
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.example.al4t_claco.Models.*
 import com.example.al4t_claco.R
-import com.example.al4t_claco.Models.Calendar
-import com.example.al4t_claco.Models.Classroom
-import com.example.al4t_claco.Models.Event
-import com.example.al4t_claco.Models.sessionManager
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -28,6 +30,8 @@ import java.time.format.FormatStyle
 class CalendarActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var session: sessionManager
+
+    private lateinit var btn_CreateEvent :Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,30 +76,19 @@ class CalendarActivity : AppCompatActivity() {
 
         //CREATE EVENTS
         //TODO: implement the calendar API here
+        val activityModel : CalendarViewModel by viewModels()
 
-        val date1 = LocalDateTime.of(2021, 12, 13, 8, 30)
-        val date2 = LocalDateTime.of(2021, 12, 13, 12, 0)
+        val events = activityModel.get_events()
+        val calendar = Calendar(events)
 
-        val date3 = LocalDateTime.of(2021, 12, 17, 8, 30)
-        val date4 = LocalDateTime.of(2021, 12, 17, 12, 0)
+        btn_CreateEvent = findViewById(R.id.btn_CreateEvent)
+        btn_CreateEvent.setOnClickListener {
+            val intent = Intent(this, CreateCalendarEvent::class.java)
+            startActivity(intent)
 
-        val date5 = LocalDateTime.of(2021, 12, 17, 12, 45)
-        val date6 = LocalDateTime.of(2021, 12, 17, 14, 0)
+        }
 
-        val date9 = LocalDateTime.of(2021, 12, 15, 12, 45)
-        val date10 = LocalDateTime.of(2021, 12, 15, 16, 0)
 
-        val date7 = LocalDateTime.of(2021, 12, 15, 8, 30)
-        val date8 = LocalDateTime.of(2021, 12, 15, 12, 0)
-
-        val event1 = Event("SA4L-L1-4MIN", Classroom("1E06"), date1, date2, "Programmation parallèle  OpenGL\nGroupe : 4MIN\nEns : LUR")
-        val event2 = Event("DD4L-L1-4MIN", Classroom("1G01"), date3, date4, "Labo architecture et qualité logicielle\nGroupe : 4MIN\nEns : J3L")
-        val event3 = Event("AL4T-T1-4MIN", Classroom("1G01"), date5, date6, "architecture et qualité logicielle\nGroupe : 4MIN\nEns : J3L")
-        val event4 = Event("SI4C-L1-4MIN", Classroom("1F04"), date7, date8, "Labo instrumentation\nGroupe : 4MIN\nEns : MCH, MDM")
-        val event5 = Event("OS4T-T1-4MEO-4MIN", Classroom("1G01"), date9, date10, "Systèmes d'exploitation\nGroupe: 4MIN\nEns : HSL, XEI")
-        val calendar = Calendar(listOf(event1, event2, event3, event4, event5))
-
-        //POPUP OF THE EVENT
 
         fun showEventDialog(event: Event) {
             val dateShow = event.startDate.toLocalDate()
@@ -215,7 +208,6 @@ class CalendarActivity : AppCompatActivity() {
                             if(todayIsInEvents){
                                 dayEvents.addView(createHorizontalBar())
                             }
-
                         }
                     }
 

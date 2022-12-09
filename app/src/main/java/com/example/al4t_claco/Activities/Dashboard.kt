@@ -71,34 +71,29 @@ class Dashboard  : AppCompatActivity() {
             false
         }
 
+        //TODO : Get this from the API instead of creating them here
         //CREATE ACTIVITIES AND COURSES
         // integrating view model
         val activityModel : DashboardViewModel by viewModels()
 
         val activitiesList = activityModel.get_all_activities()
-        for (activity in activitiesList){
-            if (activity.name==""){
-                Log.i("Found ",activity.name + activity.code)
-            }
+
+        val coursesDict = activityModel.get_all_courses();
+        val default_course = Course("undefined","/",4,5,"/","This course is unavailable", activitiesList.slice(0..2))
 
 
+        val courseNames = mutableListOf<DashboardData>();
+
+        for (course in coursesDict.values){
+            courseNames.add(DashboardData(course?:default_course,R.drawable.ic_launcher_foreground));
         }
-        //TODO : Get this from the API instead of creating them here
 
+        val course_logo = DashboardData(coursesDict[0]?:default_course,R.drawable.ic_launcher_foreground)
+        val course_logo1 = DashboardData(coursesDict[1]?:default_course,R.drawable.ic_launcher_foreground)
+        val course_logo2 = DashboardData(coursesDict[2]?:default_course,R.drawable.ic_launcher_foreground)
+        val course_logo3 = DashboardData(coursesDict[3]?:default_course,R.drawable.ic_launcher_foreground)
+        val course_logo4 = DashboardData(coursesDict[4]?:default_course,R.drawable.electric_circuit)
 
-        val course = Course("GPU Computing","4inf",4,5,"Lur","This course deals with GPU Computing", activitiesList.slice(0..2))
-        val course1 = Course("Database","4DB",4,5,"Lor","This course deals with database", activitiesList.slice(2..4))
-        val course2 = Course("APPS","4app",4,5,"LRK","This course deals with APPS", activitiesList.slice(1..3))
-        val course3 = Course("Electronics","4el",4,5,"MCH","This course deals with electronics", activitiesList.slice(3..5))
-        val course4 = Course("Electricity","4inf",4,5,"CMS","This course deals with electricity", activitiesList.slice(1..4))
-
-        val course_logo = DashboardData(course,R.drawable.ic_launcher_foreground)
-        val course_logo1 = DashboardData(course1,R.drawable.ic_launcher_foreground)
-        val course_logo2 = DashboardData(course2,R.drawable.ic_launcher_foreground)
-        val course_logo3 = DashboardData(course3,R.drawable.ic_launcher_foreground)
-        val course_logo4 = DashboardData(course4,R.drawable.electric_circuit)
-
-        val courseNames = listOf<DashboardData>(course_logo,course_logo1,course_logo2,course_logo3,course_logo4)
 
         //CALL ADAPTER TO DISPLAY COURSES
 

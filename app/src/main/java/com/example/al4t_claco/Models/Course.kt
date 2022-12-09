@@ -10,5 +10,6 @@ class Course (name: String, code: String, year : Int, credits: Int, courseLeader
     val courseLeader = courseLeader
     val description = description
     var activities = activities
+    //val logo = logo
 
 }
