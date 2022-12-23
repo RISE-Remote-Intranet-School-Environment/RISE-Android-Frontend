@@ -1,5 +1,6 @@
 package com.example.al4t_claco.Models
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -7,16 +8,16 @@ import kotlinx.coroutines.flow.asStateFlow
 import java.time.LocalDateTime
 
 data class CalendarUIState(
-    var name: String,
-    var code: String,
-    var teachers: List<String> ,
-    var description :String
+    var startTimeHour: Int? = null,
+    var startTimeMinute: Int? = null,
+    var endTimeHour : Int? =null,
+    var endTimeMinute : Int? =null
 )
 
 
 class CalendarViewModel : ViewModel() {
-    private val _uiState = MutableStateFlow(ActivitiesUIState("","", listOf(""),""))
-    val uiState: StateFlow<ActivitiesUIState> = _uiState.asStateFlow()
+    val _uiState = MutableStateFlow(CalendarUIState())
+    //val uiState: StateFlow<CalendarUIState> = _uiState.asStateFlow()
 
     private val activities = mutableListOf<Activity>();
     private val courses = mutableMapOf<Int,Course>();
@@ -51,10 +52,22 @@ class CalendarViewModel : ViewModel() {
         events.add(event5);
         return events;
     }
-    fun create_event(name:String,local:String,desc:String
-        ,year:Int,month:Int,dayOfMonth:Int,start_hour:Int,start_min:Int,end_hour:Int,end_min:Int){
-        val start = LocalDateTime.of(year,month,dayOfMonth,start_hour,start_min)
-        val end = LocalDateTime.of(year,month,dayOfMonth,end_hour,end_min)
-        events.add(Event(name,Classroom(local),start,end,desc))
+    fun create_event(name:String,local:String,desc:String,year:Int,month:Int,dayOfMonth:Int){
+        val startTimeHour = _uiState.value.startTimeHour
+        val startTimeMinute = _uiState.value.startTimeMinute
+        val endTimeHour = _uiState.value.endTimeHour
+        val endTimeMinute = _uiState.value.endTimeMinute
+        if (startTimeHour !=null && startTimeMinute !=null && endTimeHour !=null && endTimeMinute !=null){
+            val start = LocalDateTime.of(year,month,dayOfMonth, startTimeHour, startTimeMinute)
+            val end = LocalDateTime.of(year,month,dayOfMonth, endTimeHour, endTimeMinute)
+            events.add(Event(name,Classroom(local),start,end,desc))
+            Log.i("New Event","New event added")
+            Log.i("New Event Name",events.get(events.size -1).name.toString())
+            Log.i("New Event",events.get(events.size -1).description.toString())
+            Log.i("New Event",events.get(events.size -1).startDate.dayOfMonth.toString())
+        }else{
+            Log.i("Create_event","Creation didn't work")
+        }
+
     }
 }

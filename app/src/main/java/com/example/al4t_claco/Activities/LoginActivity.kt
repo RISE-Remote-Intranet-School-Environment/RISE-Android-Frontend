@@ -73,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
             if ((email.text.toString() == student.email) and (pass.text.toString() == student.password)) {
                 //user information saved in session
                 session.createLoginSession(student.name, student.email, cou, "Teacher")
-                val intent = Intent(this, Cars::class.java).apply {
+                val intent = Intent(this, Dashboard::class.java).apply {
                     putExtra("name", "Amine")
                     putExtra("matricule", "17")
                 }
