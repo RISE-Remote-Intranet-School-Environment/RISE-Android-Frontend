@@ -46,4 +46,6 @@ We incorporated the ViewModel pattern to ensure that it caches state and persist
 </p>
 
 ## **Further Improvments**
-As the APIs came a bit late, we did not have time to incorporate them into the app. Furthermore some layouts are definetly in need of additional work.
+As the APIs came a bit late, we did not have time to incorporate them into the app. For the futur dev team, we suggest using retrofit 2.
+
+Furthermore some layouts are definetly in need of additional work, in particular the calendar and forum pages.
