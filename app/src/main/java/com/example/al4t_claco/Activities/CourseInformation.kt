@@ -74,7 +74,7 @@ class CourseInformation : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> startActivity(Intent(this, Dashboard::class.java))
                 R.id.nav_calendar -> startActivity(Intent(applicationContext, CalendarActivity::class.java))
-                R.id.nav_forum -> Toast.makeText(applicationContext,"Clicked Forum", Toast.LENGTH_SHORT).show()
+                R.id.nav_forum -> startActivity(Intent(applicationContext, ForumQuestion::class.java))
                 R.id.password -> startActivity(Intent(applicationContext, ChangePassword::class.java))
                 R.id.logout -> session.logoutdUser()
             }
