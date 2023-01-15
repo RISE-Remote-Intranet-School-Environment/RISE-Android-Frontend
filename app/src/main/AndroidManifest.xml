@@ -43,6 +43,8 @@
             android:parentActivityName=".Activities.ResourceActivity"></activity>
         <activity android:name=".Activities.ChangePassword" />
         <activity android:name=".Activities.CalendarActivity" />
+        <activity android:name=".Activities.ForumQuestion"></activity>
+        <activity android:name=".Activities.ForumAnswer"></activity>
     </application>
 
 </manifest>
