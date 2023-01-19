@@ -1,6 +1,7 @@
 package com.example.al4t_claco.Models
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -8,10 +9,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import java.time.LocalDateTime
 
 data class CalendarUIState(
-    var startTimeHour: Int? = null,
-    var startTimeMinute: Int? = null,
-    var endTimeHour : Int? =null,
-    var endTimeMinute : Int? =null
+    var startTimeHour: Int? = 12,
+    var startTimeMinute: Int? = 0,
+    var endTimeHour : Int? =13,
+    var endTimeMinute : Int? =0
 )
 
 
@@ -57,17 +58,19 @@ class CalendarViewModel : ViewModel() {
         val startTimeMinute = _uiState.value.startTimeMinute
         val endTimeHour = _uiState.value.endTimeHour
         val endTimeMinute = _uiState.value.endTimeMinute
-        if (startTimeHour !=null && startTimeMinute !=null && endTimeHour !=null && endTimeMinute !=null){
-            val start = LocalDateTime.of(year,month,dayOfMonth, startTimeHour, startTimeMinute)
-            val end = LocalDateTime.of(year,month,dayOfMonth, endTimeHour, endTimeMinute)
-            events.add(Event(name,Classroom(local),start,end,desc))
-            Log.i("New Event","New event added")
-            Log.i("New Event Name",events.get(events.size -1).name.toString())
-            Log.i("New Event",events.get(events.size -1).description.toString())
-            Log.i("New Event",events.get(events.size -1).startDate.dayOfMonth.toString())
-        }else{
-            Log.i("Create_event","Creation didn't work")
+        val month = if(month!=0) month else 1
+        if (startTimeHour !=null && startTimeMinute !=null && endTimeHour !=null && endTimeMinute !=null) {
+            val start =LocalDateTime.of(year, month, dayOfMonth, startTimeHour, startTimeMinute)
+            val end = LocalDateTime.of(year, month, dayOfMonth, endTimeHour, endTimeMinute)
+            events.add(Event(name, Classroom(local), start, end, desc))
+            Log.i("New Event Name", "New event added :" +events.get(events.size - 1).name.toString())
+            //Log.i("New Event", events.get(events.size - 1).description.toString())
+            //Log.i("New Event", events.get(events.size - 1).startDate.dayOfMonth.toString())
+        } else {
+            Log.i("Create_event", "Creation didn't work")
+
         }
 
     }
+
 }

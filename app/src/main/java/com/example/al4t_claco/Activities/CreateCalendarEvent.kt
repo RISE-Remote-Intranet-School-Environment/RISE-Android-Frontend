@@ -85,7 +85,8 @@ class CreateCalendarEvent : AppCompatActivity() {
 
             activityModel.create_event(etEventName.text.toString(),etEventLocal.text.toString(),etEventDescription.text.toString(),
             datePicker.year,datePicker.month,datePicker.dayOfMonth);
-            Log.i("Create btn ","Create button pressed")
+            //Toast.makeText(this,datePicker.month.toString(), Toast.LENGTH_SHORT).show()
+            //Log.i("Create btn ","Create button pressed")
 
         }
 
